@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+import logo from "@assets/logo.png";
+
+const qa = [
+  {
+    question: "I spend hours on tasks I don't enjoy, I could really use some help.",
+    answer:
+      "We show you where AI shines so you can focus on the work that matters most to you.",
+  },
+  {
+    question: "I want to sound like myself, not another AI tool.",
+    answer:
+      "We help you own what you want to own, so you can use AI to enhance your work without losing your voice.",
+  },
+  {
+    question: "I don’t understand how to use AI tools so I tend to just avoid them.",
+    answer:
+      "We empower you to use AI tools easily and responsibly, no prior knowledge required.",
+  }
+];
+---
+
+<section class="mx-auto max-w-3xl px-4 py-16">
+  <h2 class="mb-8 text-center text-2xl font-semibold text-gray-900 sm:text-3xl">
+    Does this sound like you?
+  </h2>
+
+  <div class="flex flex-col gap-6">
+    {qa.map(({ question, answer }) => (
+      <div class="flex flex-col gap-5">
+        <div class="flex justify-end">
+          <div class="flex max-w-[80%] items-start gap-2 sm:max-w-[70%]">
+            <p class="rounded-2xl rounded-tr-sm bg-indigo-600 px-4 py-3 text-sm text-white shadow-sm sm:text-base">
+              {question}
+            </p>
+            <span
+              class="mt-1 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-indigo-100 text-xs font-semibold text-indigo-700"
+            >
+              YOU
+            </span>
+          </div>
+        </div>
+
+        <div class="flex justify-start">
+          <div class="flex max-w-[80%] items-start gap-2 sm:max-w-[70%]">
+            <Image
+              src={logo}
+              alt="AI With Ease"
+              class="mt-1 h-8 w-8 flex-none rounded-full object-cover"
+            />
+            <p class="rounded-2xl rounded-tl-sm bg-gray-100 px-4 py-3 text-sm text-gray-800 shadow-sm sm:text-base">
+              {answer}
+            </p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

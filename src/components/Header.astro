@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+import logo from '@assets/logo.png';
+
+const links = [
+  { href: '#services', label: 'Services' },
+  { href: '#faq', label: 'FAQ' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<header class="relative bg-white shadow-sm">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <a href="/" class="flex items-center gap-2">
+      <Image src={logo} alt="AI With Ease logo" class="h-8 w-auto" />
+      <span class="text-lg font-semibold text-gray-900">AI With Ease</span>
+    </a>
+
+    <ul class="hidden items-center gap-8 md:flex">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <input type="checkbox" id="nav-toggle" class="peer hidden" />
+    <label
+      for="nav-toggle"
+      aria-label="Toggle navigation menu"
+      class="flex cursor-pointer flex-col gap-1.5 md:hidden"
+    >
+      <span class="h-0.5 w-6 bg-gray-900"></span>
+      <span class="h-0.5 w-6 bg-gray-900"></span>
+      <span class="h-0.5 w-6 bg-gray-900"></span>
+    </label>
+
+    <ul
+      class="absolute inset-x-0 top-full hidden flex-col gap-4 border-t border-gray-100 bg-white px-4 py-4 shadow-sm peer-checked:flex md:hidden"
+    >
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="block text-sm font-medium text-gray-700 transition-colors hover:text-gray-900"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>

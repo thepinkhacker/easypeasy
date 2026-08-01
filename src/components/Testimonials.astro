@@ -1,0 +1,122 @@
+---
+import { Image } from "astro:assets";
+import logo from "@assets/logo.png";
+
+const testimonials = [
+  {
+    name: "Priya Naidu",
+    role: "Solopreneur",
+    quote:
+      "AI With Ease helped me automate the parts of my business I dreaded. I got hours of my week back within days.",
+    avatar: logo,
+  },
+  {
+    name: "Marcus Webb",
+    role: "Small Business Owner",
+    quote:
+      "No jargon, no fluff, just practical steps. My team is finally using AI tools with confidence.",
+    avatar: logo,
+  },
+  {
+    name: "Aiko Tanaka",
+    role: "Content Creator",
+    quote:
+      "The 1:1 coaching was a game changer. I went from overwhelmed to shipping content twice as fast.",
+    avatar: logo,
+  },
+  {
+    name: "Daniel Cohen",
+    role: "Consultant",
+    quote:
+      "The audit uncovered so many quick wins. Worth every cent for the clarity alone.",
+    avatar: logo,
+  },
+  {
+    name: "Lerato Mokoena",
+    role: "Founder",
+    quote:
+      "The workshop was hands-on and genuinely fun. My whole team left with new skills, not just notes.",
+    avatar: logo,
+  },
+];
+---
+
+<section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+  <h2 class="text-center text-2xl font-semibold text-gray-900 sm:text-3xl">
+    What People Are Saying
+  </h2>
+
+  <div class="relative mt-12">
+    <div
+      id="testimonials-track"
+      class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-4"
+    >
+      {testimonials.map((testimonial) => (
+        <div class="flex w-full flex-none snap-start flex-col items-center justify-end gap-4 sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
+          <p class="relative rounded-2xl bg-gray-100 px-5 py-4 text-sm text-gray-700 before:absolute before:-bottom-2 before:left-8 before:h-4 before:w-4 before:rotate-45 before:bg-gray-100">
+            "{testimonial.quote}"
+          </p>
+          <div class="flex items-center gap-3 self-start pl-8">
+            <Image
+              src={testimonial.avatar}
+              alt={testimonial.name}
+              class="h-12 w-12 flex-none rounded-full object-cover"
+            />
+            <div class="text-left">
+              <p class="text-sm font-semibold text-gray-900">{testimonial.name}</p>
+              <p class="text-xs text-gray-500">{testimonial.role}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {testimonials.length > 3 && (
+      <>
+        <button
+          type="button"
+          id="testimonials-prev"
+          aria-label="Previous testimonials"
+          class="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:bg-gray-50"
+        >
+          &#8592;
+        </button>
+        <button
+          type="button"
+          id="testimonials-next"
+          aria-label="Next testimonials"
+          class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:bg-gray-50"
+        >
+          &#8594;
+        </button>
+      </>
+    )}
+  </div>
+</section>
+
+<style>
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  const track = document.getElementById("testimonials-track");
+  const prevButton = document.getElementById("testimonials-prev");
+  const nextButton = document.getElementById("testimonials-next");
+
+  const scrollByCard = (direction: number) => {
+    if (!track) return;
+    const card = track.firstElementChild as HTMLElement | null;
+    const amount = card ? card.getBoundingClientRect().width + 24 : track.clientWidth;
+    track.scrollBy({ left: amount * direction, behavior: "smooth" });
+  };
+
+  prevButton?.addEventListener("click", () => scrollByCard(-1));
+  nextButton?.addEventListener("click", () => scrollByCard(1));
+</script>

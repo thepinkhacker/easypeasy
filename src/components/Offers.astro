@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import workshops from "@assets/workshops.jpg";
+import coaching from "@assets/coaching.jpg";
+import audits from "@assets/audits.jpg";
+
+const offers = [
+  {
+    title: "AI Audits",
+    description:
+      "We'll take a look at your current business and create an actionable roadmnap on how to integrate AI into your systems.",
+    image: audits,
+  },
+  {
+    title: "1:1 Coaching",
+    description:
+      "Once-off or ongoing sessions to help you take action on your roadmap and get the most out of AI in your business.",
+    image: coaching,
+  },
+  {
+    title: "Workshops",
+    description:
+      "Hands-on group sessions for your whole team. We don't cover just the basics, we take you along for a deep-dive into everything you need to know.",
+    image: workshops,
+  },
+];
+---
+
+<section id="services" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+  <h2 class="text-center text-2xl font-semibold text-gray-900 sm:text-3xl">
+    What We Offer
+  </h2>
+  <p class="mx-auto mt-4 max-w-2xl text-center text-lg text-gray-600">
+    Whichever way you like to learn, we have an offer to help you put AI to work in your business.
+  </p>
+
+  <div class="mt-12 flex flex-col gap-8 md:flex-row">
+    {offers.map((offer) => (
+      <div class="flex flex-1 flex-col overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+        <Image src={offer.image} alt={offer.title} class="h-48 w-full object-cover" />
+        <div class="flex flex-1 flex-col gap-2 p-6">
+          <h3 class="text-lg font-semibold text-gray-900">{offer.title}</h3>
+          <p class="text-sm text-gray-600">{offer.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
