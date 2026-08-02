@@ -1,0 +1,84 @@
+---
+import Calendly from "@components/Calendly.astro";
+const accessKey = import.meta.env.WEB3FORMS_ACCESS_KEY;
+
+const details = [
+  {
+    label: "hello@aiwithease.co.za",
+    href: "mailto:hello@aiwithease.co.za",
+    path: "M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Zm2.2.2 6.8 5.7 6.8-5.7H5.2ZM19 7.4l-6.4 5.4a1 1 0 0 1-1.2 0L5 7.4V19h14V7.4Z",
+  },
+  {
+    label: "Cape Town, South Africa",
+    href: "https://maps.google.com/?q=Cape+Town,+South+Africa",
+    path: "M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z",
+  },
+];
+---
+
+<section class="mx-auto max-w-3xl px-4 py-16">
+  <h1 class="text-center text-3xl font-bold text-gray-900 sm:text-4xl">
+    Contact Us
+  </h1>
+
+  <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-10">
+    {details.map((detail) => (
+      <a
+        href={detail.href}
+        target={detail.href.startsWith("http") ? "_blank" : undefined}
+        rel={detail.href.startsWith("http") ? "noopener noreferrer" : undefined}
+        class="flex items-center gap-2 text-sm text-gray-700 transition-colors hover:text-gray-900"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 flex-none text-teal-500">
+          <path d={detail.path} />
+        </svg>
+        {detail.label}
+      </a>
+    ))}
+  </div>
+
+  <div class="mt-8 flex justify-center">
+    <Calendly />
+  </div>
+
+  <form
+    action="https://api.web3forms.com/submit"
+    method="POST"
+    class="mx-auto mt-12 flex max-w-xl flex-col gap-5"
+  >
+    <input type="hidden" name="access_key" value={accessKey} />
+
+    <input
+      type="text"
+      name="name"
+      required
+      placeholder="Name"
+      class="rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-900 focus:border-teal-500 focus:outline-none"
+    />
+
+    <input
+      type="email"
+      name="email"
+      required
+      placeholder="Email"
+      class="rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-900 focus:border-teal-500 focus:outline-none"
+    />
+
+    <textarea
+      name="message"
+      required
+      rows="5"
+      placeholder="Message"
+      class="resize-none rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-900 focus:border-teal-500 focus:outline-none"
+    ></textarea>
+
+    <div class="h-captcha" data-captcha="true"></div>
+
+    <button
+      type="submit"
+      class="mt-2 rounded-md bg-gray-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-700"
+    >
+      Submit
+    </button>
+  </form>
+</section>

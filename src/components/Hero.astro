@@ -1,6 +1,7 @@
 ---
 import {Image} from "astro:assets";
 import fullLogo from "@assets/full-logo.png";
+import Calendly from "@components/Calendly.astro";
 ---
 
 <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -13,14 +14,9 @@ import fullLogo from "@assets/full-logo.png";
         We believe AI should be your creative partner, not your replacement. Let us show you how.
       </p>
       <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+        <Calendly buttonText="Book your free discovery call" buttonColor="black" />
         <a
-          href="/get-started"
-          class="rounded-md bg-gray-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-700"
-        >
-          Book your free discovery call
-        </a>
-        <a
-          href="/learn-more"
+          href="/#services"
           class="rounded-md border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-100"
         >
           Learn More

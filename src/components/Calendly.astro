@@ -1,0 +1,23 @@
+---
+export interface Props {
+  buttonText?: string;
+  buttonColor?: string;
+}
+
+const { buttonText = "Book a discovery call", buttonColor = "#00bba7" } = Astro.props;
+
+const CALENDLY_URL = "https://calendly.com/aiwitheaseza/30min";
+---
+
+<!-- Calendly link widget begin -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<a
+  class="inline-block rounded-md px-6 py-3 text-sm font-semibold text-white transition hover:brightness-90"
+  style={`background-color: ${buttonColor}`}
+  href=""
+  onclick={`Calendly.initPopupWidget({url: '${CALENDLY_URL}'});return false;`}
+>
+  {buttonText}
+</a>
+<!-- Calendly link widget end -->

@@ -5,24 +5,27 @@ import coaching from "@assets/coaching.jpg";
 import audits from "@assets/audits.jpg";
 
 const offers = [
+    {
+    title: "1:1 Coaching",
+    description:
+      "Once-off or ongoing sessions to help you take action on your roadmap and get the most out of AI in your business.",
+    image: coaching,
+    
+  },
   {
     title: "AI Audits",
     description:
       "We'll take a look at your current business and create an actionable roadmnap on how to integrate AI into your systems.",
     image: audits,
+    popular: true,
   },
-  {
-    title: "1:1 Coaching",
-    description:
-      "Once-off or ongoing sessions to help you take action on your roadmap and get the most out of AI in your business.",
-    image: coaching,
-  },
+  
   {
     title: "Workshops",
     description:
       "Hands-on group sessions for your whole team. We don't cover just the basics, we take you along for a deep-dive into everything you need to know.",
     image: workshops,
-  },
+  }
 ];
 ---
 
@@ -34,9 +37,21 @@ const offers = [
     Whichever way you like to learn, we have an offer to help you put AI to work in your business.
   </p>
 
-  <div class="mt-12 flex flex-col gap-8 md:flex-row">
+  <div class="mt-12 flex flex-col gap-8 md:flex-row md:items-center">
     {offers.map((offer) => (
-      <div class="flex flex-1 flex-col overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+      <div
+        class:list={[
+          "relative flex flex-1 flex-col overflow-hidden rounded-xl border shadow-sm",
+          offer.popular
+            ? "border-gray-900 shadow-lg md:z-10 md:-my-6 md:scale-110"
+            : "border-gray-200",
+        ]}
+      >
+        {offer.popular && (
+          <span class="absolute right-4 top-4 rounded-full bg-gray-900 px-3 py-1 text-xs font-semibold text-white">
+            Most Popular
+          </span>
+        )}
         <Image src={offer.image} alt={offer.title} class="h-48 w-full object-cover" />
         <div class="flex flex-1 flex-col gap-2 p-6">
           <h3 class="text-lg font-semibold text-gray-900">{offer.title}</h3>
