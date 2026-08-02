@@ -1,0 +1,13 @@
+# AI With Ease
+
+> AI With Ease helps solopreneurs, small businesses, and creators put AI to work in their business through practical AI audits, 1:1 coaching, and workshops, without compromising the human element.
+
+## Pages
+
+- [Home](https://aiwithease.co.za/): Overview of AI With Ease and what we offer.
+- [Contact](https://aiwithease.co.za/contact): Contact form, email, and location details.
+
+## Contact
+
+- Email: hello@aiwithease.co.za
+- Location: Cape Town, South Africa
