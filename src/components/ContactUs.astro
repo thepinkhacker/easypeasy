@@ -1,5 +1,12 @@
 ---
 import Calendly from "@components/Calendly.astro";
+
+export interface Props {
+  showCalendly?: boolean;
+}
+
+const { showCalendly = true }: Props = Astro.props;
+
 const accessKey = import.meta.env.WEB3FORMS_ACCESS_KEY;
 
 const details = [
@@ -37,9 +44,11 @@ const details = [
     ))}
   </div>
 
-  <div class="mt-8 flex justify-center">
-    <Calendly />
-  </div>
+  {showCalendly && (
+    <div class="mt-8 flex justify-center">
+      <Calendly />
+    </div>
+  )}
 
   <form
     action="https://api.web3forms.com/submit"

@@ -1,0 +1,55 @@
+---
+import HowItWorks from "@components/HowItWorks.astro";
+import ServiceHero from "@components/ServiceHero.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import workshopStep1 from "@assets/workshop-step-1.jpg"
+import workshopStep2 from "@assets/workshop-step-2.jpg"
+import workshopStep3 from "@assets/workshop-step-3.jpg"
+import FAQ from "@components/FAQ.astro";
+import ContactUs from "@components/ContactUs.astro";
+---
+<BaseLayout title="Team Workshops">
+<ServiceHero eyebrow="For Growing Teams" heading="AI Team Workshops" description="Give your team the confidence to use AI well. Our hands-on workshops go beyond the basics, giving your team the skills and confidence to use AI in ways that genuinely support their work." />
+<HowItWorks
+  heading = "How It Works",
+  steps = {[
+    {
+      title: "Enquire for Your Free 30 Minute Discovery Call",
+      description: "Reach out and we'll set up a free 30-minute call to learn about your team, your current AI usage if any, and what you'd like to get out of the workshop. This helps us understand exactly where your team is starting from, so nothing feels too basic or too advanced.",
+      image: workshopStep1,
+    },
+    {
+      title: "Tailored Workshop Creation",
+      description: "Using what we learn on the call, we build a workshop specifically around your team's tools, workflows, and goals, not a generic template. You'll get content that speaks directly to the day-to-day work your team actually does.",
+      image: workshopStep2,
+    },
+    {
+      title: "Live Workshop Presented Online or In-person",
+      description: "Your team joins a hands-on, interactive session, delivered either online, or at your offices in Cape Town. We go beyond the basics, giving your team real, practical experience using AI tools that will support your business from the get-go.",
+      image: workshopStep3,
+    },
+  ]} />
+  <FAQ faqs={[
+    {
+      question: "How many people can attent a workshop?",
+      answer: "Workshops are usually designed for small to medium-sized teams, and the training is tailored to suit your group-size. However, please do get in touch if your team size is larger and we will discuss your needs further. When enquriring, please include the number of people you forsee attending the workshop."
+    },
+    {
+      question: "Do we need any prior AI experience as a team?",
+      answer: "Not at all. Workshops are built around your team's starting point, whether that's complete beginners or a mix of experience levels. However, if you are still unsure, we have pre-built workshop templates that can also be discussed with you during your 30 minute discovery call."
+    },
+    {
+      question: "Which AI tools will the workshop cover?",
+      answer: "We specialise in tools such as Claude and ChatGPT, but can also show your team how to work with and get the most out of other commonly used AI tools."
+    },
+    {
+      question: "How long does a workshop take?",
+      answer: "Workshop length depends on your team's goals and size, and what we uncover during the discovery call. We suggest workshops are scheduled at least 90 minutes, but we will confirm timing with you before the session is booked."
+    },
+    {
+      question: "Can the workshop be run online, or does it need to be in-person?",
+      answer: "Our workshops can be presented online, wherever your team is located. In-person sessions are also available at your offices in Cape Town."
+    },
+  ]} />
+  <ContactUs showCalendly={false} />
+</BaseLayout>

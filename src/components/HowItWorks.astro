@@ -1,0 +1,86 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import assessmentStep1 from "@assets/assessment-step-1.jpg";
+import assessmentStep2 from "@assets/assessment-step-2.jpg";
+import assessmentStep3 from "@assets/assessment-step-3.jpg";
+import assessmentStep4 from "@assets/assessment-step-4.jpg";
+
+export interface Step {
+  title: string;
+  description: string;
+  image?: ImageMetadata;
+}
+
+export interface Props {
+  heading?: string;
+  steps?: Step[];
+}
+
+const {
+  heading = "How It Works",
+  steps = [
+    {
+      title: "45 Minute Consultation",
+      description: "In this call we get to know your business and understand your challenges and opportunities for growth. We’ll also discuss your goals and what you want to achieve with AI.",
+      image: assessmentStep1,
+    },
+    {
+      title: "Opportunities Analysis",
+      description: "Taking what we’ve learned, we’ll identify the best opportunities for AI integration. We’ll also identify any gaps in your current systems and processes.",
+      image: assessmentStep2,
+    },
+    {
+      title: "Roadmap Creation",
+      description: "Everything you need to know is compiled into clear and actionable steps. This will include tools, prompts, and new processes that will help save time and increase revenue.",
+      image: assessmentStep3,
+    },
+    {
+      title: "30 Minute Walkthrough",
+      description: "We don’t leave you hanging, we help you understand your roadmap fully. In this call we’ll walk you through your roadmap and answer any questions you have.",
+      image: assessmentStep4,
+    },
+  ],
+}: Props = Astro.props;
+---
+
+<section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+  <h2 class="text-center text-2xl font-semibold text-gray-900 sm:text-3xl">
+    {heading}
+  </h2>
+
+  <div class="relative mt-16">
+    <div class="absolute left-4 top-0 h-full w-px bg-gray-200 md:left-1/2 md:-translate-x-1/2"></div>
+
+    <div class="flex flex-col gap-12">
+      {steps.map((step, index) => (
+        <div class="relative pl-16 md:grid md:grid-cols-2 md:items-start md:gap-x-12 md:pl-0">
+          <span class="absolute left-4 top-0 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border-2 border-gray-900 bg-white text-sm font-bold text-gray-900 md:left-1/2 md:h-14 md:w-14 md:text-xl">
+            {index + 1}
+          </span>
+
+          <div
+            class:list={[
+              "overflow-hidden rounded-2xl rounded-tl-sm bg-teal-500 shadow-sm",
+              index % 2 === 0
+                ? "md:col-start-2 md:ml-5"
+                : "md:col-start-1 md:row-start-1 md:rounded-tl-2xl md:mr-5 md:rounded-tr-sm md:text-right",
+            ]}
+          >
+            {step.image && (
+              <Image
+                src={step.image}
+                alt={step.title}
+                class="h-40 w-full object-cover"
+              />
+            )}
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-white">{step.title}</h3>
+              <p class="mt-2 text-sm text-teal-50">{step.description}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

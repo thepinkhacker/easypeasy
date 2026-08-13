@@ -1,0 +1,43 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ServiceHero from '@components/ServiceHero.astro';
+import HowItWorks from '@components/HowItWorks.astro';
+import ContactUs from '@components/ContactUs.astro';
+import FAQ from '@components/FAQ.astro';
+---
+
+<BaseLayout title="AI Tools Assessment">
+<ServiceHero
+  eyebrow="Start Here"
+  heading="AI Tools Assessment"
+  description="Find out which AI tools are right for your business and how to use them effectively. Our assessment will help you identify the best AI solutions for your unique needs and goals."
+/>
+<HowItWorks />
+<FAQ faqs={[
+  {
+    question: "Do I need to prepare anything for the assessment?",
+    answer:
+      "Not at all. We base your assessment on the information you provide us during the initial consultation. We know you know your business best, and the questions we cover will give us everything we need.",
+  },
+  {
+    question: "How long will it take to receive my roadmap?",
+    answer: "After your initial consultaion, we will take 2-3 business days to create your roadmap. Once it is ready, we will schedule a 30 minute walkthrough to go through it with you and answer any questions you have.",
+  },
+  {
+    question: "Will the recommendations be relevant to my industry?",
+    answer:
+      "Yes, the recommendations will be tailored to your specific industry and business needs. We don't believe in one-size-fits-all solutions, and we will take into account your unique challenges, opportunities, and current tools that you are already using.",
+  },
+  {
+    question: "Do I need to implement everything in the roadmap myself?",
+    answer:
+      "Your roadmap will include clear and actionable steps, making implemenation smooth and straightforward. However, if you would like additional support, we offer individualised coaching sessions to help you implement your roadmap and get the most out of AI in your business.",
+  },
+  {
+    question: "How much time will this actually save my business?",
+    answer:
+      "Every assessment is built around identifying at least 5 hours of time savings per week. Time savings taken over a month or year results in significant cost savings, allowing you to focus on growing your business and increasing revenue.",
+  }
+]} />
+<ContactUs showCalendly={false} />
+</BaseLayout>

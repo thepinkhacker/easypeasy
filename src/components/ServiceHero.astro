@@ -1,0 +1,21 @@
+---
+export interface Props {
+  eyebrow: string;
+  heading: string;
+  description: string;
+}
+
+const { eyebrow, heading, description }: Props = Astro.props;
+---
+
+<section class="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 lg:px-8">
+  <p class="text-sm font-semibold uppercase tracking-wide text-gray-500">
+    {eyebrow}
+  </p>
+  <h1 class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+    {heading}
+  </h1>
+  <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+    {description}
+  </p>
+</section>

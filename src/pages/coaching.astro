@@ -1,0 +1,54 @@
+---
+import ContactUs from "@components/ContactUs.astro";
+import FAQ from "@components/FAQ.astro";
+import Features from "@components/Features.astro";
+import HowItWorks from "@components/HowItWorks.astro";
+import ServiceHero from "@components/ServiceHero.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+
+---
+<BaseLayout title="Coaching">
+<ServiceHero eyebrow="Putting the Ease in AI" heading="Individualised Coaching" description="You don't have to figure it out alone. Individualised coaching gives you dedicated, one-on-one support to put your AI roadmap into action and get real results in your business." />
+<Features heading="What You Get:" features={[
+    {
+        title: "Once-off or Ongoing Support",
+        description: "Book a single session to tackle a specific challenge, or set up ongoing coaching while you keep growing with AI."
+    },
+    {
+        title: "Flexibility to Your Pace",
+        description: "Whether you want to move quickly or take things one step at a time, sessions are shaped around what actually works for you and your business."
+    },
+    {
+        title: "Real Accountability",
+        description: "Ongoing sessions help keep momentum going, so your AI adoption doesn't stall after the first few weeks."
+    },
+    {
+        title: "Confidence, Not Just Instructions",
+        description: "We don't just tell you what to do, we help you understand why, so you can keep making smart AI decisions long after your sessions end."
+    },
+]} />
+<FAQ faqs={[
+    {
+        question: "Do I need to have completed an AI Tool Assessment before booking coaching?",
+        answer: "Not necessarily. While coaching works especially well alongside your assessment roadmap, you're welcome to book a coaching session even if you're starting fresh with a specific question or challenge."
+    },
+    {
+        question: "How often should I book coaching sessions?",
+        answer: "This is entirely up to you. Some clients book a single session to tackle a particular challenge, while others want ongoing momentum and accountability."
+    },
+    {
+        question: "What can we actually work on during a session?",
+        answer: "Anything from choosing the right AI tool for a task, refining how you're using a tool already, or working through a specific workflow you'd like to improve, the session is shaped around whatever you need most."
+    },
+    {
+        question: "Is coaching only for individuals, or can my whole team join a session?",
+        answer: "Coaching is designed as one-on-one support, so if you're looking to upskill your whole team together, our Team Workshops would be a better fit."
+    },
+    {
+        question: "What if I don't know what I need help with yet, I just know I'm stuck?",
+        answer: "That's completely fine! Feel free to book a free 15-minute discovery call to learn more without having to commit to coaching just yet. We are always here to help."
+    }
+]} />
+<ContactUs showCalendly={false} />
+</BaseLayout>
