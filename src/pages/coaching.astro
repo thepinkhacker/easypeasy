@@ -6,9 +6,20 @@ import HowItWorks from "@components/HowItWorks.astro";
 import ServiceHero from "@components/ServiceHero.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
-
+const site = Astro.site ?? Astro.url;
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "AI Coaching",
+  name: "Individualised Coaching",
+  description: "1:1 AI coaching for small business owners. Get personalized, ongoing support to confidently put AI tools to work",
+  provider: { "@type": "ProfessionalService", name: "AI With Ease", url: site.toString() },
+  areaServed: ["Cape Town, South Africa", "Worldwide (remote/online)"],
+  url: new URL("/coaching", site).toString(),
+};
 ---
 <BaseLayout title="AI Coaching | AI With Ease" description="1:1 AI coaching for small business owners. Get personalized, ongoing support to confidently put AI tools to work">
+<script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)}></script>
 <ServiceHero eyebrow="Putting the Ease in AI" heading="Individualised Coaching" description="You don't have to figure it out alone. Individualised coaching gives you dedicated, one-on-one support to put your AI roadmap into action and get real results in your business." />
 <Features heading="What You Get:" features={[
     {
