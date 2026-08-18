@@ -17,9 +17,19 @@ const serviceSchema = {
   areaServed: ["Cape Town, South Africa", "Worldwide (remote/online)"],
   url: new URL("/coaching", site).toString(),
 };
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: site.toString() },
+    { "@type": "ListItem", position: 2, name: serviceSchema.name, item: serviceSchema.url },
+  ],
+};
 ---
 <BaseLayout title="AI Coaching | AI With Ease" description="1:1 AI coaching for small business owners. Get personalized, ongoing support to confidently put AI tools to work">
 <script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)}></script>
+<script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)}></script>
 <ServiceHero eyebrow="Putting the Ease in AI" heading="Individualised Coaching" description="You don't have to figure it out alone. Individualised coaching gives you dedicated, one-on-one support to put your AI roadmap into action and get real results in your business." />
 <Features heading="What You Get:" features={[
     {

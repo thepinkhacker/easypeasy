@@ -19,9 +19,19 @@ const serviceSchema = {
   areaServed: ["Cape Town, South Africa", "Worldwide (remote/online)"],
   url: new URL("/workshops", site).toString(),
 };
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: site.toString() },
+    { "@type": "ListItem", position: 2, name: serviceSchema.name, item: serviceSchema.url },
+  ],
+};
 ---
 <BaseLayout title="AI Workshops for Teams | AI With Ease" description="AI training workshops for small and growing teams, in Cape Town or online">
 <script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)}></script>
+<script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)}></script>
 <ServiceHero eyebrow="For Growing Teams" heading="AI Team Workshops" description="Give your team the confidence to use AI well. Our hands-on workshops go beyond the basics, giving your team the skills and confidence to use AI in ways that genuinely support their work." />
 <HowItWorks
   heading = "How It Works",

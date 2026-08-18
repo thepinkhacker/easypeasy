@@ -40,6 +40,18 @@ const localBusinessSchema = {
   ],
   description,
 };
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "AI With Ease",
+  url: site.toString(),
+  publisher: { "@type": "ProfessionalService", name: "AI With Ease", url: site.toString() },
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1", "h1 + p"],
+  },
+};
 ---
 <html data-theme="light" lang="en">
   <head>
@@ -54,6 +66,7 @@ const localBusinessSchema = {
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="en_ZA" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -66,6 +79,7 @@ const localBusinessSchema = {
     <link rel="manifest" href="/site.webmanifest">
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(localBusinessSchema)}></script>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(websiteSchema)}></script>
   </head>
   <body>
     <Header />

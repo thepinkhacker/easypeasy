@@ -16,10 +16,20 @@ const serviceSchema = {
   areaServed: ["Cape Town, South Africa", "Worldwide (remote/online)"],
   url: new URL("/assessment", site).toString(),
 };
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: site.toString() },
+    { "@type": "ListItem", position: 2, name: serviceSchema.name, item: serviceSchema.url },
+  ],
+};
 ---
 
 <BaseLayout title="AI Tools Assessment | AI With Ease" description='AI Tool Assessment for small businesses in Cape Town. Discover where AI can save you 5+ hours a week, with a clear, practical roadmap you control.'>
 <script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)}></script>
+<script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)}></script>
 <ServiceHero
   eyebrow="Start Here"
   heading="AI Tools Assessment"
