@@ -7,19 +7,19 @@ export interface Props {
 
 const { buttonText = "Book your free discovery call", buttonColor = "#00bba7", textColor = "white" } = Astro.props;
 
-const CALENDLY_URL = "https://calendly.com/aiwitheaseza/30min";
+const KOALENDAR_URL = "https://koalendar.com/e/meet-ai-with-ease";
 ---
 
-<!-- Calendly link widget begin -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<!-- Koalendar link widget begin -->
+<script is:inline>window.Koalendar=window.Koalendar||function(){(Koalendar.props=Koalendar.props||[]).push(arguments)};</script>
+<script is:inline async src="https://koalendar.com/assets/widget.js"></script>
+<script is:inline>Koalendar('init');</script>
 <a
   class="inline-block rounded-md px-6 py-3 text-sm font-semibold transition hover:brightness-90"
   style={`background-color: ${buttonColor}; color: ${textColor}`}
-
-  href=""
-  onclick={`Calendly.initPopupWidget({url: '${CALENDLY_URL}'});return false;`}
+  data-koalendar-widget
+  href={KOALENDAR_URL}
 >
   {buttonText}
 </a>
-<!-- Calendly link widget end -->
+<!-- Koalendar link widget end -->
