@@ -7,7 +7,7 @@
 - [Home](https://aiwithease.co.za/): Overview of AI With Ease and what we offer.
 - [AI Tools Assessment](https://aiwithease.co.za/assessment): A roadmap identifying the AI tools best suited to your business and how to use them effectively.
 - [Individualised Coaching](https://aiwithease.co.za/coaching): One-on-one, once-off or ongoing sessions to help put your AI roadmap into action.
-- [Team Workshops](https://aiwithease.co.za/workshops): Hands-on, tailored group training workshops delivered online or in-person in Cape Town, giving teams practical confidence with AI tools.
+- [Team Workshops](https://aiwithease.co.za/workshops): Hands-on, tailored group AI training workshops delivered online or in-person in Cape Town, giving teams practical confidence with AI tools.
 - [Contact](https://aiwithease.co.za/contact): Contact form, email, and location details.
 
 ## Contact

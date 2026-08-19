@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin
 
 # AI answer/generative engine crawlers — explicitly allowed so AI With Ease
 # can be cited by AI search and chat assistants.
