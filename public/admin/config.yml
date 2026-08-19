@@ -8,6 +8,9 @@ backend:
 
 publish_mode: editorial_workflow
 
+media_folder: "src/assets/blog"
+public_folder: "src/assets/blog"
+
 collections:
   - name: "blog"
     label: "Blog"
