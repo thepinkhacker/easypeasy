@@ -8,8 +8,6 @@ cover: ../../assets/blog/dr-stanfords-story-hero-image.jpg
 coverAlt: Dr Stanford's AI Story with AI With Ease
 draft: false
 ---
-# From "I Thought I Was Doing OK" to a Clear AI Roadmap: Dr Stanford's Story
-
 When Dr Stanford* booked an AI Tool Assessment with AI With Ease, she wasn't sure how it would help.
 
 "I'm a DIY person," she says, "and I thought I was doing OK with AI. I'd been navigating my way through the questions and concerns I had about AI and finding my own way forward." She'd heard the term "AI coaching" and was curious more than convinced. As she puts it: "I know about life coaching and sports coaching, but AI coaching...??"
@@ -60,7 +58,5 @@ Dr Stanford isn't unusual. Most of the professionals and small business owners w
 If you recognise a bit of Dr Stanford's story in your own week, whether that's a task that keeps eating more time than it should, or a nagging sense that AI could probably help but you're not sure where to start, we'd love to have that conversation with you too.
 
 Contact us today at hello@aiwithease.net to book a free discovery call.
-
-
 
 *\*Names have been changed as requested for the client's privacy.*
