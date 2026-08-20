@@ -1,11 +1,15 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import { loadEnv } from 'vite';
 
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import decapCmsOauth from 'astro-decap-cms-oauth';
 
 import vercel from '@astrojs/vercel';
+
+const { CMS_ADMIN_ROUTE } = loadEnv(process.env.NODE_ENV ?? 'development', process.cwd(), '');
+const cmsAdminRoute = CMS_ADMIN_ROUTE || '/admin';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,10 +21,14 @@ export default defineConfig({
     sitemap({
       filter: (page) =>
         !page.includes('/questionnaire') &&
-        !page.includes('/admin') &&
+        !page.includes(cmsAdminRoute) &&
         !page.includes('/oauth'),
     }),
-    decapCmsOauth(),
+    decapCmsOauth({
+      adminRoute: cmsAdminRoute,
+      configPath: 'config/decap-cms.yml',
+      oauthDisabled: true,
+    }),
   ],
 
   vite: {
