@@ -26,7 +26,7 @@ export default defineConfig({
     }),
     decapCmsOauth({
       adminRoute: cmsAdminRoute,
-      configPath: 'config/decap-cms.yml',
+      configPath: 'config/config.yml',
       oauthDisabled: true,
     }),
   ],

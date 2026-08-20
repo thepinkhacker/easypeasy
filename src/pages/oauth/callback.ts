@@ -75,9 +75,15 @@ export const GET: APIRoute = async ({ url, redirect }) => {
       provider: "github",
     };
 
+    const expectedOrigin = url.origin;
+
     const script = `
       <script>
+        const expectedOrigin = ${JSON.stringify(expectedOrigin)};
+
         const receiveMessage = (message) => {
+          if (message.origin !== expectedOrigin) return;
+
           window.opener.postMessage(
             'authorization:${content.provider}:success:${JSON.stringify(content)}',
             message.origin
