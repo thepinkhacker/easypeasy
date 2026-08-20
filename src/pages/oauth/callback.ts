@@ -9,9 +9,34 @@ const ALLOWED_GITHUB_USERNAMES = (import.meta.env.OAUTH_ALLOWED_GITHUB_USERNAMES
 
 const unauthorizedResponse = () =>
   new Response(
-    `<script>
-      window.opener.postMessage("authorization:github:error:Not authorized", "*");
-    </script>`,
+    `<!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <title>Not authorized</title>
+        <style>
+          body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background: #111827;
+            color: #f9fafb;
+            text-align: center;
+          }
+          p { max-width: 24rem; padding: 0 1.5rem; }
+        </style>
+      </head>
+      <body>
+        <p>This GitHub account isn't authorized to access the CMS. This window will close automatically.</p>
+        <script>
+          window.opener.postMessage("authorization:github:error:Not authorized", "*");
+          setTimeout(() => window.close(), 3000);
+        </script>
+      </body>
+    </html>`,
     { headers: { "Content-Type": "text/html" }, status: 403 },
   );
 
