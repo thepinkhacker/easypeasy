@@ -3,7 +3,7 @@ import "../styles/global.css";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import '@fontsource-variable/sen/wght.css';
-
+import Analytics from '@vercel/analytics/astro'
 export interface Props {
   title: string;
   description?: string;
@@ -80,6 +80,7 @@ const websiteSchema = {
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(localBusinessSchema)}></script>
     <script type="application/ld+json" is:inline set:html={JSON.stringify(websiteSchema)}></script>
+    <Analytics />
   </head>
   <body>
     <Header />
