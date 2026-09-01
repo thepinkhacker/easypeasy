@@ -1,8 +1,8 @@
 ---
-title: How This Sales Team Learned to Work With Claude Skills
+title: How This Architectural Team Learned to Work With Claude Skills
 description: Learn how a small architectural team took Claude Cowork from an
-  underused tool into a practical part of their daily workflow.
-publishDate: 2026-09-01T10:22:00.000Z
+  underused tool into a practical part of their daily workflow using Skills.
+publishDate: 2026-09-01T10:23:00.000Z
 cover: ../../assets/blog/small-team-claude-workshop.jpg
 coverAlt: Claude Skills AI Workshop - AI With Ease
 draft: false
