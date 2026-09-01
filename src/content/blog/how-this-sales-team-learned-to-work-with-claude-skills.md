@@ -1,11 +1,11 @@
 ---
 title: How This Sales Team Learned to Work With Claude Skills
-description: Learn how a small software sales team took Claude Cowork from an
+description: Learn how a small architectural team took Claude Cowork from an
   underused tool into a practical part of their daily workflow.
 publishDate: 2026-09-01T10:22:00.000Z
 cover: ../../assets/blog/small-team-claude-workshop.jpg
 coverAlt: Claude Skills AI Workshop - AI With Ease
-draft: true
+draft: false
 ---
 A lot of teams we talk to have already taken their first steps with AI: they've signed up for Claude, rolled it out to the whole team, and encourage them to use it "as much as possible". However, there's often a gap between having access to a set of powerful AI tools and being able to get great results from them.
 
